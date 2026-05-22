@@ -36,10 +36,11 @@ const LandingPage = () => {
           </div>
 
           <div className="space-x-8 hidden lg:flex font-medium text-sm text-slate-600">
-            <a href="#perfil" className="hover:text-[#BE123C] transition-colors relative after:absolute after:bottom-[-20px] after:left-0 after:w-0 after:h-[2px] after:bg-[#BE123C] hover:after:w-full after:transition-all">Perfil de Ingreso</a>
-            <a href="#malla" className="hover:text-[#BE123C] transition-colors relative after:absolute after:bottom-[-20px] after:left-0 after:w-0 after:h-[2px] after:bg-[#BE123C] hover:after:w-full after:transition-all">Malla Curricular</a>
-            <a href="#investigacion" className="hover:text-[#BE123C] transition-colors relative after:absolute after:bottom-[-20px] after:left-0 after:w-0 after:h-[2px] after:bg-[#BE123C] hover:after:w-full after:transition-all">Investigación</a>
-            <a href="#recursos" className="hover:text-[#BE123C] transition-colors relative after:absolute after:bottom-[-20px] after:left-0 after:w-0 after:h-[2px] after:bg-[#BE123C] hover:after:w-full after:transition-all">Infraestructura</a>
+            <a href="#perfil" className="hover:text-[#BE123C] transition-colors">Perfil de Ingreso</a>
+            <a href="#malla" className="hover:text-[#BE123C] transition-colors">Malla Curricular</a>
+            <a href="#investigacion" className="hover:text-[#BE123C] transition-colors">Investigación</a>
+            <a href="#recursos" className="hover:text-[#BE123C] transition-colors">Infraestructura</a>
+            <a href="#profesores" className="hover:text-[#BE123C] transition-colors">Profesores</a>
           </div>
 
           <div className="flex items-center gap-4">
@@ -69,6 +70,7 @@ const LandingPage = () => {
             <a href="#malla" onClick={() => setIsMenuOpen(false)} className="py-2 hover:text-[#BE123C] transition-colors">Malla Curricular</a>
             <a href="#investigacion" onClick={() => setIsMenuOpen(false)} className="py-2 hover:text-[#BE123C] transition-colors">Investigación</a>
             <a href="#recursos" onClick={() => setIsMenuOpen(false)} className="py-2 hover:text-[#BE123C] transition-colors">Infraestructura</a>
+            <a href="#profesores" onClick={() => setIsMenuOpen(false)} className="py-2 hover:text-[#BE123C] transition-colors">Profesores</a>
             <button className="sm:hidden bg-slate-900 text-white text-sm py-3 rounded-full font-semibold hover:bg-[#BE123C] transition-colors mt-2">
               Inscribirse
             </button>
@@ -249,7 +251,42 @@ const LandingPage = () => {
           </div>
         </section>
 
+        <section id="profesores" className="py-24 border-b border-slate-100 scroll-mt-20">
+          <div className="text-center max-w-2xl mx-auto mb-16 space-y-4">
+            <span className="text-xs font-bold uppercase tracking-widest text-[#BE123C]">Cuerpo Docente</span>
+            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900">Nuestros Profesores</h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {[
+              { "name": "Marco Antonio Adarme Jaimes", "title": "Doctor en Ingenieria", "img": "/profesores/Marco Antonio Adarme Jaimes/img.jpeg" },
+              { "name": "José Martín Calixto Cely", "title": "Magister en Proyectos", "img": "/profesores/José Martín Calixto Cely/img.jpeg" },
+              { "name": "Nelly Rosana Diaz Leal", "title": "Magister en Gerencia", "img": "/profesores/Nelly Rosana Diaz Leal/img.jpeg" },
+              { "name": "Judith del Pilar Rodriguez Tenjo", "title": "Doctor en Educacion", "img": "/profesores/Judith del Pilar Rodriguez Tenjo/img.jpeg" },
+              { "name": "Carmen Janeth Parada", "title": "Magister en Ciencias", "img": "/profesores/Carmen Janeth Parada/img.jpeg" },
+              { "name": "María del Pilar Rojas Puentes", "title": "Maestria en Proyectos", "img": "/profesores/María del Pilar Rojas Puentes/img.jpeg" },
+              { "name": "Carlos Eduardo Pardo", "title": "Doctor en Educacion", "img": "/profesores/Carlos Eduardo Pardo/img.jpg" },
+              { "name": "Freddy Humberto Vera Rivera", "title": "Doctor en Ingenieria", "img": "/profesores/Freddy Humberto Vera Rivera/img.jpg" },
+              { "name": "Eduard Gilberto Puerto Cuadros", "title": "Doctor en Ingenieria", "img": "/profesores/Eduard Gilberto Puerto Cuadros/img.jpg" },
+              { "name": "Boris Rainiero Pérez Gutiérrez", "title": "Doctor en Ingenieria", "img": "/profesores/Boris Rainiero Pérez Gutiérrez/img.jpeg" },
+              { "name": "Mátias Herrera Cáceres", "title": "Doctor en Educacion", "img": "/profesores/Mátias Herrera Cáceres/img.jpg" },
+              { "name": "Nelson Beltrán Galvis", "title": "Magister en Ciencias", "img": "/profesores/Nelson Beltrán Galvis/img.jpg" },
+              { "name": "Milton Jesús Vera Contreras", "title": "Magister en Ingenieria", "img": "/profesores/Milton Jesús Vera Contreras/img.png" }
+            ].map((p, i) => (
+              <div key={i} className="group bg-white border border-slate-100 rounded-3xl overflow-hidden hover:shadow-xl transition-all duration-300">
+                <div className="aspect-square relative overflow-hidden">
+                    <img src={p.img} alt={p.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                </div>
+                <div className="p-6">
+                    <h4 className="font-bold text-slate-900 mb-1">{p.name}</h4>
+                    <p className="text-sm text-[#BE123C] font-semibold">{p.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <footer className="py-20 text-center bg-slate-50 rounded-t-[3rem] mt-16 px-6">
+
           <p className="text-slate-500 text-sm">© 2026 Universidad Francisco de Paula Santander - Ingeniería de Sistemas. Cúcuta, Colombia.</p>
         </footer>
       </main>
