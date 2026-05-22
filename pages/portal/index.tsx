@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Link from "next/link";
+import Head from "next/head";
 
 // --- Data & Components ---
 
@@ -332,38 +333,53 @@ const PortalPage = () => {
   ];
 
   return (
-    <div className="h-screen bg-[#FDFDFD] text-[#1E293B] font-sans flex overflow-hidden">
+    <div className="h-screen bg-[#0D0D14] text-white font-sans flex overflow-hidden">
+      <Head>
+        <title>Portal Académico | Ingeniería de Sistemas UFPS</title>
+        <meta name="description" content="Portal de inducción del Programa de Ingeniería de Sistemas de la UFPS." />
+        <style>{`
+          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap');
+          .font-display { font-family: 'Syne', sans-serif; }
+          .font-sans { font-family: 'Inter', sans-serif; }
+          .custom-scrollbar::-webkit-scrollbar { width: 3px; }
+          .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+          .custom-scrollbar::-webkit-scrollbar-thumb { background: #2d2d3d; border-radius: 10px; }
+          .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #BE123C; }
+        `}</style>
+      </Head>
       
       {/* Sidebar */}
-      <aside className={`${sidebarCollapsed ? 'w-24' : 'w-72'} bg-slate-900 text-white p-6 sm:p-8 flex flex-col transition-all duration-300 relative z-20 shadow-2xl shrink-0`}>
-        <div className="flex items-center justify-between mb-8 sm:mb-12">
-          {!sidebarCollapsed && <h1 className="font-display text-2xl font-bold text-white tracking-tight">UFPS <span className="text-[#BE123C]">Sistemas</span></h1>}
-          <button onClick={() => setSidebarCollapsed(!sidebarCollapsed)} className="p-2 hover:bg-white/10 rounded-lg transition-colors focus:outline-none">
-            <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={sidebarCollapsed ? "M4 6h16M4 12h16M4 18h16" : "M4 6h16M4 12h16M4 18h7"} />
+      <aside className={`${sidebarCollapsed ? 'w-20' : 'w-72'} flex flex-col transition-all duration-300 relative z-20 shrink-0 border-r`} style={{background:'#0A0A0F', borderColor:'rgba(255,255,255,0.06)'}}>
+        <div className={`flex items-center ${sidebarCollapsed ? 'justify-center' : 'justify-between'} p-5 border-b`} style={{borderColor:'rgba(255,255,255,0.06)'}}>
+          {!sidebarCollapsed && <span className="font-display text-lg font-bold tracking-tight">UFPS <span className="text-[#BE123C]">·</span> Sistemas</span>}
+          <button onClick={() => setSidebarCollapsed(!sidebarCollapsed)} className="p-2 hover:bg-white/8 rounded-lg transition-colors focus:outline-none text-white/50 hover:text-white">
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d={sidebarCollapsed ? "M4 6h16M4 12h16M4 18h16" : "M4 6h16M4 12h8"} />
             </svg>
           </button>
         </div>
         
-        <nav className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+        <nav className="flex-1 overflow-y-auto p-4 custom-scrollbar">
           {tabGroups.map((group, gIdx) => (
-            <div key={gIdx} className="mb-6">
-              {!sidebarCollapsed && <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 px-4">{group.section}</p>}
-              <div className="space-y-1">
+            <div key={gIdx} className="mb-5">
+              {!sidebarCollapsed && <p className="text-[10px] font-bold text-white/25 uppercase tracking-widest mb-2 px-3">{group.section}</p>}
+              <div className="space-y-0.5">
                 {group.items.map(tab => (
                   <button 
                     key={tab.id} 
                     onClick={() => setActiveTab(tab.id)} 
-                    className={`w-full flex items-center gap-4 p-3 rounded-xl transition-all duration-200 group ${
+                    title={sidebarCollapsed ? tab.label : undefined}
+                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group ${
                       activeTab === tab.id 
-                        ? 'bg-[#BE123C] text-white shadow-lg shadow-[#BE123C]/20 font-medium' 
-                        : 'text-slate-400 hover:bg-white/5 hover:text-white'
+                        ? 'bg-[#BE123C]/15 text-[#BE123C] font-semibold' 
+                        : 'text-white/40 hover:bg-white/5 hover:text-white/80'
                     }`}
                   >
-                    <svg className={`w-5 h-5 flex-shrink-0 ${activeTab === tab.id ? 'text-white' : 'text-slate-500 group-hover:text-white transition-colors'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={tab.icon} />
+                    <svg className={`w-4.5 h-4.5 flex-shrink-0 transition-colors ${activeTab === tab.id ? 'text-[#BE123C]' : ''}`} style={{width:'18px',height:'18px'}} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={activeTab === tab.id ? 2 : 1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d={tab.icon} />
                     </svg>
                     {!sidebarCollapsed && <span className="text-sm whitespace-nowrap">{tab.label}</span>}
+                    {!sidebarCollapsed && activeTab === tab.id && <span className="ml-auto w-1.5 h-1.5 rounded-full bg-[#BE123C]"></span>}
                   </button>
                 ))}
               </div>
@@ -372,35 +388,33 @@ const PortalPage = () => {
         </nav>
 
         {/* Action Bottom */}
-        <div className="mt-8 pt-6 border-t border-slate-800 flex flex-col gap-4">
+        <div className="p-4 border-t" style={{borderColor:'rgba(255,255,255,0.06)'}}>
           {!sidebarCollapsed ? (
-            <a href="/ufps-induction/pep.pdf" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white p-4 rounded-xl text-sm font-medium transition-colors border border-slate-700">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+            <a href="/ufps-induction/pep.pdf" target="_blank" rel="noopener noreferrer" className="w-full flex items-center gap-2 px-4 py-3 rounded-xl text-sm font-medium transition-all border border-white/8 text-white/50 hover:text-white hover:border-[#BE123C]/40 hover:bg-[#BE123C]/10">
+              <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
               Descargar PEP Oficial
             </a>
           ) : (
-            <a href="/ufps-induction/pep.pdf" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-white p-4 rounded-xl transition-colors border border-slate-700" title="Descargar PEP Oficial">
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
+            <a href="/ufps-induction/pep.pdf" target="_blank" rel="noopener noreferrer" title="Descargar PEP Oficial" className="w-full flex items-center justify-center py-3 rounded-xl transition-all border border-white/8 text-white/40 hover:text-white hover:border-[#BE123C]/40 hover:bg-[#BE123C]/10">
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}><path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" /></svg>
             </a>
           )}
         </div>
       </aside>
 
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto bg-[#F8FAFC]">
-        <div className="max-w-6xl mx-auto p-8 sm:p-12 lg:p-16">
-          <Link href="/" className="inline-flex items-center text-sm font-medium text-slate-500 mb-8 hover:text-[#BE123C] transition-colors bg-white px-4 py-2 rounded-full shadow-sm border border-slate-100">
-            <svg className="w-4 h-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
+      <main className="flex-1 overflow-y-auto" style={{background:'#0D0D14'}}>
+        <div className="max-w-5xl mx-auto p-8 sm:p-10 lg:p-14">
+          <Link href="/" className="inline-flex items-center gap-2 text-sm font-medium text-white/30 mb-10 hover:text-white transition-colors">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}><path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" /></svg>
             Volver al Inicio
           </Link>
           
-          <div className="flex justify-between items-end mb-12 border-b border-slate-200 pb-8">
-            <div>
-              <p className="text-[#BE123C] font-semibold text-sm mb-2 tracking-wider uppercase">Portal Académico</p>
-              <h2 className="font-display text-4xl sm:text-5xl font-bold text-slate-900 tracking-tight">
-                {Data[activeTab as keyof typeof Data].title}
-              </h2>
-            </div>
+          <div className="mb-10 pb-8 border-b" style={{borderColor:'rgba(255,255,255,0.06)'}}>
+            <p className="text-[#BE123C] font-semibold text-xs mb-3 tracking-widest uppercase">Portal Académico</p>
+            <h2 className="font-display text-4xl sm:text-5xl font-bold text-white tracking-tight">
+              {Data[activeTab as keyof typeof Data].title}
+            </h2>
           </div>
           
           <div className="pb-24">
