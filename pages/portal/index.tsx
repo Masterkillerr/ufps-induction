@@ -57,6 +57,38 @@ const Data = {
       </div>
     )
   },
+  competencias: {
+    title: "Competencias Específicas",
+    content: (
+      <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[
+            {
+              id: "CE1",
+              name: "Resolución de Problemas",
+              desc: "Resolver problemas complejos de ingeniería por medio de la aplicación de principios de ingeniería, ciencia y matemáticas."
+            },
+            {
+              id: "CE2",
+              name: "Diseño de Software",
+              desc: "Aplicar el diseño de ingeniería para producir soluciones que satisfagan necesidades específicas con consideración a la salud pública, seguridad y bienestar, así como a factores globales, culturales, sociales, ambientales y económicos."
+            },
+            {
+              id: "CE3",
+              name: "Formulación de Proyectos",
+              desc: "Plantear proyectos de ingeniería basado en conceptos y procedimientos básicos en el ciclo de vida del software, considerando riesgos e impactos."
+            }
+          ].map(comp => (
+            <div key={comp.id} className="p-8 bg-white border border-slate-100 rounded-3xl shadow-sm hover:shadow-lg transition-shadow group cursor-default">
+              <div className="w-14 h-14 bg-slate-900 text-white rounded-2xl flex items-center justify-center font-display font-bold text-xl mb-6 group-hover:bg-[#BE123C] transition-colors shadow-md">{comp.id}</div>
+              <h3 className="font-display text-2xl font-bold mb-4 text-slate-900">{comp.name}</h3>
+              <p className="text-slate-600 leading-relaxed font-sans text-sm">{comp.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    )
+  },
   perfil: {
     title: "Perfil de Ingreso y Egreso",
     content: (
@@ -130,7 +162,7 @@ const Data = {
             <h3 className="font-display text-2xl font-bold mb-2">Metodologías de Innovación</h3>
             <p className="text-slate-300 text-sm">Aprendizaje Basado en Problemas (ABP), Clase Invertida, Gamificación, Resultados de Aprendizaje.</p>
           </div>
-          <a href="/ufps-induction-landing/pensum_ufps_sistemas.pdf" target="_blank" rel="noopener noreferrer" className="bg-[#BE123C] hover:bg-red-700 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap transition-transform hover:scale-105 shadow-lg">
+          <a href="/ufps-induction/pensum_ufps_sistemas.pdf" target="_blank" rel="noopener noreferrer" className="bg-[#BE123C] hover:bg-red-700 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap transition-transform hover:scale-105 shadow-lg">
             Descargar Malla PDF
           </a>
         </div>
@@ -153,6 +185,56 @@ const Data = {
                 <p className="text-slate-600 leading-relaxed">Investigación multidisciplinar con impacto regional e internacional, apoyada por FINU (Fondo de Investigaciones Universitarias).</p>
             </div>
         </div>
+    )
+  },
+  extension: {
+    title: "Sector Productivo",
+    content: (
+      <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+        <div className="p-8 bg-slate-900 text-white rounded-3xl shadow-xl flex flex-col md:flex-row items-center gap-8">
+            <div className="flex-1">
+                <h3 className="font-display text-3xl font-bold mb-4">Transferencia de Tecnología</h3>
+                <p className="text-slate-300 leading-relaxed font-sans">
+                  Nuestra relación con el sector productivo nos permite establecer alianzas estratégicas para la realización de proyectos de vinculación, prácticas profesionales y pasantías. Promovemos la transferencia de conocimiento entre la universidad y la industria para impulsar la innovación regional.
+                </p>
+            </div>
+            <div className="w-full md:w-1/3 bg-white/10 p-6 rounded-2xl border border-white/20">
+                <h4 className="font-bold text-white mb-2">Educación Continua</h4>
+                <p className="text-sm text-slate-300 mb-4">Procesos de certificación que acreditan las competencias adquiridas.</p>
+                <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 bg-[#BE123C] text-xs font-bold rounded-full">Prácticas</span>
+                    <span className="px-3 py-1 bg-[#BE123C] text-xs font-bold rounded-full">Pasantías</span>
+                    <span className="px-3 py-1 bg-white/20 text-xs font-bold rounded-full">Proyectos</span>
+                </div>
+            </div>
+        </div>
+      </div>
+    )
+  },
+  internacional: {
+    title: "Visibilidad Internacional",
+    content: (
+      <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="p-8 bg-white border border-slate-100 rounded-3xl shadow-sm">
+            <h3 className="font-display text-2xl font-bold mb-4 text-[#BE123C]">Estándares Globales</h3>
+            <p className="text-slate-600 leading-relaxed font-sans text-sm mb-6">
+              El Programa está concebido, se revisa y actualiza según los estudios realizados por instituciones de prestigio mundial.
+            </p>
+            <div className="flex flex-wrap gap-3">
+                <span className="px-4 py-2 bg-slate-100 text-slate-800 rounded-xl text-sm font-bold border border-slate-200">ACM</span>
+                <span className="px-4 py-2 bg-slate-100 text-slate-800 rounded-xl text-sm font-bold border border-slate-200">IEEE</span>
+                <span className="px-4 py-2 bg-slate-100 text-slate-800 rounded-xl text-sm font-bold border border-slate-200">AIS</span>
+            </div>
+          </div>
+          <div className="p-8 bg-slate-900 text-white rounded-3xl shadow-xl">
+            <h3 className="font-display text-2xl font-bold mb-4 text-[#BE123C]">Movilidad y Convenios</h3>
+            <p className="text-slate-300 leading-relaxed font-sans text-sm">
+              La UFPS ha suscrito múltiples convenios marco y específicos a nivel nacional e internacional para mejorar las relaciones de docencia e investigación, permitiendo realizar movilidad docente y estudiantil con instituciones reconocidas y acreditadas.
+            </p>
+          </div>
+        </div>
+      </div>
     )
   },
   infraestructura: {
@@ -197,7 +279,7 @@ const Data = {
               { "name": "Milton Jesús Vera Contreras", "title": "Magister en Ingeniería", "img": "/profesores/Milton Jesús Vera Contreras/img.png" }
             ].map((p, i) => (
                 <div key={i} className="bg-white border border-slate-100 rounded-2xl p-6 flex items-center gap-4 shadow-sm hover:shadow-md transition-shadow group">
-                    <img src={`/ufps-induction-landing/profesores/${encodeURIComponent(p.name)}/${p.img.split('/').pop()}`} alt={p.name} className="w-16 h-16 rounded-full object-cover group-hover:scale-105 transition-transform"/>
+                    <img src={`/ufps-induction/profesores/${encodeURIComponent(p.name)}/${p.img.split('/').pop()}`} alt={p.name} className="w-16 h-16 rounded-full object-cover group-hover:scale-105 transition-transform"/>
                     <div>
                         <h4 className="font-bold text-slate-900 text-sm">{p.name}</h4>
                         <p className="text-xs text-[#BE123C] font-semibold mt-1">{p.title}</p>
@@ -215,21 +297,45 @@ const PortalPage = () => {
   const [activeTab, setActiveTab] = useState('identidad');
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
-  const tabs = [
-    { id: 'identidad', label: 'Identidad (Misión)', icon: 'M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9' },
-    { id: 'objetivos', label: 'Objetivos del Programa', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
-    { id: 'perfil', label: 'Perfil de Ingreso', icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' },
-    { id: 'malla', label: 'Malla Curricular', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01' },
-    { id: 'investigacion', label: 'Investigación', icon: 'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z' },
-    { id: 'infraestructura', label: 'Infraestructura', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' },
-    { id: 'profesores', label: 'Cuerpo Docente', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z' }
+  // Grouped tabs for cleaner UX
+  const tabGroups = [
+    { 
+      section: "El Programa", 
+      items: [
+        { id: 'identidad', label: 'Identidad (Misión)', icon: 'M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9' },
+        { id: 'objetivos', label: 'Objetivos', icon: 'M13 10V3L4 14h7v7l9-11h-7z' },
+        { id: 'competencias', label: 'Competencias', icon: 'M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z' }
+      ]
+    },
+    { 
+      section: "Académico", 
+      items: [
+        { id: 'perfil', label: 'Perfil de Ingreso', icon: 'M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z' },
+        { id: 'malla', label: 'Malla Curricular', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01' }
+      ]
+    },
+    { 
+      section: "Proyección", 
+      items: [
+        { id: 'investigacion', label: 'Investigación', icon: 'M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z' },
+        { id: 'extension', label: 'Sector Productivo', icon: 'M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
+        { id: 'internacional', label: 'Internacionalización', icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z' }
+      ]
+    },
+    { 
+      section: "Recursos", 
+      items: [
+        { id: 'infraestructura', label: 'Infraestructura', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' },
+        { id: 'profesores', label: 'Cuerpo Docente', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z' }
+      ]
+    }
   ];
 
   return (
     <div className="h-screen bg-[#FDFDFD] text-[#1E293B] font-sans flex overflow-hidden">
       
       {/* Sidebar */}
-      <aside className={`${sidebarCollapsed ? 'w-24' : 'w-72'} bg-slate-900 text-white p-6 sm:p-8 flex flex-col transition-all duration-300 relative z-20 shadow-2xl`}>
+      <aside className={`${sidebarCollapsed ? 'w-24' : 'w-72'} bg-slate-900 text-white p-6 sm:p-8 flex flex-col transition-all duration-300 relative z-20 shadow-2xl shrink-0`}>
         <div className="flex items-center justify-between mb-8 sm:mb-12">
           {!sidebarCollapsed && <h1 className="font-display text-2xl font-bold text-white tracking-tight">UFPS <span className="text-[#BE123C]">Sistemas</span></h1>}
           <button onClick={() => setSidebarCollapsed(!sidebarCollapsed)} className="p-2 hover:bg-white/10 rounded-lg transition-colors focus:outline-none">
@@ -239,34 +345,41 @@ const PortalPage = () => {
           </button>
         </div>
         
-        <nav className="flex-1 space-y-2 overflow-y-auto pr-2 custom-scrollbar">
-          {tabs.map(tab => (
-            <button 
-              key={tab.id} 
-              onClick={() => setActiveTab(tab.id)} 
-              className={`w-full flex items-center gap-4 p-4 rounded-xl transition-all duration-200 group ${
-                activeTab === tab.id 
-                  ? 'bg-[#BE123C] text-white shadow-lg shadow-[#BE123C]/20 font-medium' 
-                  : 'text-slate-400 hover:bg-white/5 hover:text-white'
-              }`}
-            >
-              <svg className={`w-5 h-5 flex-shrink-0 ${activeTab === tab.id ? 'text-white' : 'text-slate-500 group-hover:text-white transition-colors'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={tab.icon} />
-              </svg>
-              {!sidebarCollapsed && <span className="text-sm whitespace-nowrap">{tab.label}</span>}
-            </button>
+        <nav className="flex-1 overflow-y-auto pr-2 custom-scrollbar">
+          {tabGroups.map((group, gIdx) => (
+            <div key={gIdx} className="mb-6">
+              {!sidebarCollapsed && <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 px-4">{group.section}</p>}
+              <div className="space-y-1">
+                {group.items.map(tab => (
+                  <button 
+                    key={tab.id} 
+                    onClick={() => setActiveTab(tab.id)} 
+                    className={`w-full flex items-center gap-4 p-3 rounded-xl transition-all duration-200 group ${
+                      activeTab === tab.id 
+                        ? 'bg-[#BE123C] text-white shadow-lg shadow-[#BE123C]/20 font-medium' 
+                        : 'text-slate-400 hover:bg-white/5 hover:text-white'
+                    }`}
+                  >
+                    <svg className={`w-5 h-5 flex-shrink-0 ${activeTab === tab.id ? 'text-white' : 'text-slate-500 group-hover:text-white transition-colors'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={tab.icon} />
+                    </svg>
+                    {!sidebarCollapsed && <span className="text-sm whitespace-nowrap">{tab.label}</span>}
+                  </button>
+                ))}
+              </div>
+            </div>
           ))}
         </nav>
 
         {/* Action Bottom */}
-        <div className="mt-8 pt-8 border-t border-slate-800 flex flex-col gap-4">
+        <div className="mt-8 pt-6 border-t border-slate-800 flex flex-col gap-4">
           {!sidebarCollapsed ? (
-            <a href="/ufps-induction-landing/pep.pdf" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white p-4 rounded-xl text-sm font-medium transition-colors border border-slate-700">
+            <a href="/ufps-induction/pep.pdf" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white p-4 rounded-xl text-sm font-medium transition-colors border border-slate-700">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
               Descargar PEP Oficial
             </a>
           ) : (
-            <a href="/ufps-induction-landing/pep.pdf" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-white p-4 rounded-xl transition-colors border border-slate-700" title="Descargar PEP Oficial">
+            <a href="/ufps-induction/pep.pdf" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center bg-slate-800 hover:bg-slate-700 text-white p-4 rounded-xl transition-colors border border-slate-700" title="Descargar PEP Oficial">
               <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
             </a>
           )}

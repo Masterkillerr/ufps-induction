@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: "/ufps-induction-landing",
+  basePath: "/ufps-induction",
 };
 
 export default nextConfig;
