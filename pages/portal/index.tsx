@@ -163,9 +163,6 @@ const Data = {
             <h3 className="font-display text-2xl font-bold mb-2">Metodologías de Innovación</h3>
             <p className="text-slate-300 text-sm">Aprendizaje Basado en Problemas (ABP), Clase Invertida, Gamificación, Resultados de Aprendizaje.</p>
           </div>
-          <a href="/ufps-induction/pensum_ufps_sistemas.pdf" target="_blank" rel="noopener noreferrer" className="bg-[#BE123C] hover:bg-red-700 text-white px-6 py-3 rounded-full font-bold whitespace-nowrap transition-transform hover:scale-105 shadow-lg">
-            Descargar Malla PDF
-          </a>
         </div>
       </div>
     )
